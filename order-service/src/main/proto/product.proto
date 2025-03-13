@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.example.product;
+
+service ProductService {
+  rpc GetProductById (ProductRequest) returns (ProductResponse);
+}
+
+message ProductRequest {
+  string product_id = 1;
+}
+
+message ProductResponse {
+  string product_id = 1;
+  string name = 2;
+  double price = 3;
+  int32 quantity_available = 4;
+}
