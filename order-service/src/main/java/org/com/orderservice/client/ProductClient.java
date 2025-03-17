@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductClient {
-    private final ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090).usePlaintext().build();
+    private final ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9091).usePlaintext().build();
     private final ProductServiceGrpc.ProductServiceBlockingStub blockingStub = ProductServiceGrpc.newBlockingStub(channel);
 
     public Product.ProductResponse getProductById(String productId) {

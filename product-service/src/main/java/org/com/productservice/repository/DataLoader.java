@@ -18,7 +18,7 @@ public class DataLoader implements CommandLineRunner {
         // Check if there are no products in the database, then add one.
         if (productRepository.count() == 0) {
             Product product = new Product();
-            product.setId("P001");
+            product.setId("123");
             product.setName("Product 1");
             product.setPrice(25.5);
             product.setQuantityAvailable(10);
