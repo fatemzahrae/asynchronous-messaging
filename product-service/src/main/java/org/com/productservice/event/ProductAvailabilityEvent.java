@@ -1,7 +1,7 @@
 package org.com.productservice.event;
 
 public class ProductAvailabilityEvent {
-    private Long orderId;
+    private String orderId;
     private String status; // "AVAILABLE" or "OUT_OF_STOCK"
 
     public String getStatus() {
@@ -12,11 +12,11 @@ public class ProductAvailabilityEvent {
         this.status = status;
     }
 
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 }

@@ -1,10 +1,35 @@
 package org.com.orderservice.event;
 
-import lombok.Data;
 
-@Data
 public class OrderCreatedEvent {
-    private Long orderId;       // ID of the newly created order
-    private String productId;   // ID of the product in the order
-    private int quantity;       // Quantity requested for the product
+    private String orderId;
+    private String productId;
+    private int quantity;
+
+    public OrderCreatedEvent(String orderId, String productId, int quantity) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+    }
+
+    public OrderCreatedEvent() {
+    }
+
+    public String getOrderId() { return orderId; }
+    public void setOrderId(String orderId) { this.orderId = orderId; }
+
+    public String getProductId() { return productId; }
+    public void setProductId(String productId) { this.productId = productId; }
+
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+
+    @Override
+    public String toString() {
+        return "OrderCreatedEvent{" +
+                "orderId='" + orderId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

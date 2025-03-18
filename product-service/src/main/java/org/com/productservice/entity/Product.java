@@ -2,15 +2,20 @@ package org.com.productservice.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     @Id
     private String id;
+
+    @Column(nullable = false)
     private String name;
-    private double price;
+
+    @Column(nullable = false)
+    private float price;
+
+    @Column(name = "quantity_available", nullable = false)
     private int quantityAvailable;
 
 
@@ -34,7 +39,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

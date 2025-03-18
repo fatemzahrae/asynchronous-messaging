@@ -10,18 +10,26 @@ import lombok.Data;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
+
+    @Column(name = "product_id", nullable = false)
     private String productId;
+
+    @Column(nullable = false)
     private int quantity;
-    private double price;
+
+    @Column(nullable = false)
+    private float price;
+
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private OrderState state;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,7 +53,7 @@ public class Order {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

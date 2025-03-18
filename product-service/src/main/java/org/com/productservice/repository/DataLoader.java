@@ -15,16 +15,34 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Check if there are no products in the database, then add one.
         if (productRepository.count() == 0) {
-            Product product = new Product();
-            product.setId("123");
-            product.setName("Product 1");
-            product.setPrice(25.5);
-            product.setQuantityAvailable(10);
-            productRepository.save(product);
+            // Product 1
+            Product product1 = new Product();
+            product1.setId("123");
+            product1.setName("Product 1");
+            product1.setPrice(100.0f);
+            product1.setQuantityAvailable(10);
+            productRepository.save(product1);
 
-            System.out.println("Product added to database.");
+            // Product 2
+            Product product2 = new Product();
+            product2.setId("456");
+            product2.setName("Product 2");
+            product2.setPrice(200.0f);
+            product2.setQuantityAvailable(5);
+            productRepository.save(product2);
+
+            // Product 3
+            Product product3 = new Product();
+            product3.setId("789");
+            product3.setName("Product 3");
+            product3.setPrice(50.0f);
+            product3.setQuantityAvailable(20);
+            productRepository.save(product3);
+
+            System.out.println("Sample products added to the database.");
+        } else {
+            System.out.println("Database already contains products. Skipping data loading.");
         }
     }
 }

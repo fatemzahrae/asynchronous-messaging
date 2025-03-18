@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
-
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -23,6 +22,12 @@ public class KafkaConsumerConfig {
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "order-group");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+
+        // Add this mapping to match product service event to your local class
+        config.put(JsonDeserializer.TYPE_MAPPINGS,
+                "org.com.productservice.event.ProductAvailabilityEvent:org.com.orderservice.event.ProductAvailabilityEvent");
+
         return new DefaultKafkaConsumerFactory<>(config);
     }
 

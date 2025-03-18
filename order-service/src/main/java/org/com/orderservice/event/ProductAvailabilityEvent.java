@@ -5,8 +5,18 @@ import lombok.Data;
 
 @Data // Lombok generates getters/setters automatically
 public class ProductAvailabilityEvent {
-    private Long orderId;
+    private String orderId;
+    private String productId;
     private String status; // "AVAILABLE" or "OUT_OF_STOCK"
+
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public String getStatus() {
         return status;
@@ -16,11 +26,11 @@ public class ProductAvailabilityEvent {
         this.status = status;
     }
 
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 }
